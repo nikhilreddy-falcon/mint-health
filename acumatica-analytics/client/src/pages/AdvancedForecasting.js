@@ -15,6 +15,7 @@ import {
   Area
 } from 'recharts';
 import { TrendingUp, TrendingDown, Package, Calendar } from 'lucide-react';
+import API_CONFIG from '../config/api';
 
 const AdvancedForecasting = () => {
   const [data, setData] = useState(null);
@@ -29,7 +30,7 @@ const AdvancedForecasting = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:7006/api/analytics/advanced-forecasting?businessUnit=${businessUnit}&topN=20`);
+      const response = await axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/advanced-forecasting?businessUnit=${businessUnit}&topN=20`);
       setData(response.data);
       setLoading(false);
     } catch (err) {

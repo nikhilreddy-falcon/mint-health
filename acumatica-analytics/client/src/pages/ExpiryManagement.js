@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import API_CONFIG from '../config/api';
 
 const ExpiryManagement = () => {
   const [data, setData] = useState(null);
@@ -13,7 +14,7 @@ const ExpiryManagement = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:7006/api/analytics/expiry-alerts?daysThreshold=${selectedThreshold}`);
+      const response = await axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/expiry-alerts?daysThreshold=${selectedThreshold}`);
       setData(response.data);
       setLoading(false);
     } catch (error) {

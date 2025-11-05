@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart } from 'recharts';
 import { Package, Brain } from 'lucide-react';
+import API_CONFIG from '../config/api';
 
 const InventoryManagement = () => {
   const [inventory, setInventory] = useState(null);
@@ -17,8 +18,8 @@ const InventoryManagement = () => {
   const fetchData = async () => {
     try {
       const [inventoryRes, turnoverRes] = await Promise.all([
-        axios.get('http://localhost:7006/api/analytics/inventory'),
-        axios.get('http://localhost:7006/api/analytics/inventory-turnover')
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/inventory`),
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/inventory-turnover`)
       ]);
       setInventory(inventoryRes.data);
       setTurnover(turnoverRes.data);

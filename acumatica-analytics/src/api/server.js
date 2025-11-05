@@ -12,11 +12,18 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.API_PORT || 3001;
+// CHANGED PORT FROM 3001 TO 4001 (no conflict with existing deployments)
+const PORT = process.env.API_PORT || 4001;
 
 // Middleware
 app.use(helmet());
-app.use(cors());
+// ADDED CORS configuration for localhost and server IP
+app.use(cors({
+  origin: [
+    'http://localhost:4000',           // Frontend on localhost
+    'http://91.203.132.74:4000'        // Frontend on server
+  ]
+}));
 app.use(compression());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import API_CONFIG from '../config/api';
 
 const InventoryAnalytics = () => {
   const [inventory, setInventory] = useState(null);
@@ -14,8 +15,8 @@ const InventoryAnalytics = () => {
   const fetchData = async () => {
     try {
       const [inventoryRes, turnoverRes] = await Promise.all([
-        axios.get('http://localhost:7006/api/analytics/inventory'),
-        axios.get('http://localhost:7006/api/analytics/inventory-turnover')
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/inventory`),
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/inventory-turnover`)
       ]);
       setInventory(inventoryRes.data);
       setTurnover(turnoverRes.data);

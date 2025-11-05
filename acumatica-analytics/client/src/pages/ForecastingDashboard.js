@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import API_CONFIG from '../config/api';
 
 const ForecastingDashboard = () => {
   const [forecasts, setForecasts] = useState(null);
@@ -15,8 +16,8 @@ const ForecastingDashboard = () => {
   const fetchData = async () => {
     try {
       const [forecastRes, tenderRes] = await Promise.all([
-        axios.get(`http://localhost:7006/api/analytics/forecasting?businessUnit=${businessUnit}`),
-        axios.get('http://localhost:7006/api/analytics/tenders')
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/forecasting?businessUnit=${businessUnit}`),
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/tenders`)
       ]);
       setForecasts(forecastRes.data);
       setTenders(tenderRes.data);

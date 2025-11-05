@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts';
+import API_CONFIG from '../config/api';
 
 const CashFlowForecast = () => {
   const [forecast, setForecast] = useState([]);
@@ -14,7 +15,7 @@ const CashFlowForecast = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`http://localhost:7006/api/analytics/cashflow-forecast?days=${days}`);
+      const res = await axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/cashflow-forecast?days=${days}`);
       setForecast(res.data);
       setLoading(false);
     } catch (err) {

@@ -42,10 +42,17 @@ const {
 } = require('./advancedForecastingEngine');
 
 const app = express();
-const PORT = process.env.ANALYTICS_PORT || 3002;
+// CHANGED PORT FROM 3002 TO 7006 (matches hardcoded client URLs!)
+const PORT = process.env.ANALYTICS_PORT || 7006;
 
 // Middleware
-app.use(cors());
+// ADDED CORS configuration for localhost and server IP
+app.use(cors({
+  origin: [
+    'http://localhost:4000',           // Frontend on localhost
+    'http://91.203.132.74:4000'        // Frontend on server
+  ]
+}));
 app.use(bodyParser.json());
 
 // Load data

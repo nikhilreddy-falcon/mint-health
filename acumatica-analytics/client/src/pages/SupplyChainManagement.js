@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Building2, FileText, Calendar, Clock, Package as PackageIcon, AlertCircle, CheckCircle } from 'lucide-react';
+import API_CONFIG from '../config/api';
 
 const SupplyChainManagement = () => {
   const [supplierData, setSupplierData] = useState(null);
@@ -18,7 +19,7 @@ const SupplyChainManagement = () => {
   const fetchData = async () => {
     try {
       const [supplierRes] = await Promise.all([
-        axios.get('http://localhost:7006/api/analytics/supplier-scorecards')
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/supplier-scorecards`)
       ]);
       setSupplierData(supplierRes.data);
 

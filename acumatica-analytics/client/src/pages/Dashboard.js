@@ -4,6 +4,7 @@ import {
   AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
+import API_CONFIG from '../config/api';
 
 const Dashboard = () => {
   const [kpis, setKpis] = useState(null);
@@ -21,10 +22,10 @@ const Dashboard = () => {
     try {
       setLoading(true);
       const [kpisRes, salesRes, pipelineRes, customersRes] = await Promise.all([
-        axios.get('http://localhost:7006/api/analytics/kpis'),
-        axios.get('http://localhost:7006/api/analytics/sales?period=monthly'),
-        axios.get('http://localhost:7006/api/analytics/sales-pipeline'),
-        axios.get('http://localhost:7006/api/analytics/top-customers?limit=5')
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/kpis`),
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/sales?period=monthly`),
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/sales-pipeline`),
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/top-customers?limit=5`)
       ]);
 
       setKpis(kpisRes.data);

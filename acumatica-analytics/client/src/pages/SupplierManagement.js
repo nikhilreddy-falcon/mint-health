@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, LineChart, Line, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter, ZAxis } from 'recharts';
+import API_CONFIG from '../config/api';
 
 const SupplierManagement = () => {
   const [data, setData] = useState(null);
@@ -13,7 +14,7 @@ const SupplierManagement = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:7006/api/analytics/supplier-scorecards');
+      const response = await axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/supplier-scorecards`);
       setData(response.data);
       setLoading(false);
     } catch (err) {

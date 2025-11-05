@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Line } from 'recharts';
 import { Store, Users, TrendingUp, ShoppingCart } from 'lucide-react';
+import API_CONFIG from '../config/api';
 
 const SalesAnalytics = () => {
   const [sales, setSales] = useState(null);
@@ -20,11 +21,11 @@ const SalesAnalytics = () => {
   const fetchData = async () => {
     try {
       const [salesRes, pipelineRes, customersRes, segmentationRes, topCustomersRes] = await Promise.all([
-        axios.get('http://localhost:7006/api/analytics/sales?period=monthly'),
-        axios.get('http://localhost:7006/api/analytics/sales-pipeline'),
-        axios.get('http://localhost:7006/api/analytics/customers'),
-        axios.get('http://localhost:7006/api/analytics/customer-segmentation'),
-        axios.get('http://localhost:7006/api/analytics/top-customers?limit=15')
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/sales?period=monthly`),
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/sales-pipeline`),
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/customers`),
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/customer-segmentation`),
+        axios.get(`${API_CONFIG.ANALYTICS_API}/api/analytics/top-customers?limit=15`)
       ]);
       setSales(salesRes.data);
       setPipeline(pipelineRes.data);
