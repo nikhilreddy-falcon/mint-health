@@ -433,3 +433,60 @@
   font-weight: 600;
   color: #111827;
 }
+
+/* Floating Bot Button */
+.floating-bot-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #3b82f6;
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3),
+              0 4px 12px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  padding: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3),
+                0 4px 12px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.5),
+                0 4px 16px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+}
+
+.floating-bot-button:hover {
+  transform: scale(1.1) rotate(5deg);
+  border-color: #2563eb;
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4),
+              0 6px 20px rgba(0, 0, 0, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  animation: none;
+}
+
+.floating-bot-button:active {
+  transform: scale(0.95);
+}
+
+.floating-bot-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}

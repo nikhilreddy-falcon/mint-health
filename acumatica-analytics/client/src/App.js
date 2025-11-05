@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
   DollarSign,
@@ -29,6 +29,7 @@ import SupplyChainManagement from './pages/SupplyChainManagement';
 import ExpiryManagement from './pages/ExpiryManagement';
 import LifeSciences from './pages/LifeSciences';
 import Login from './pages/Login';
+import FalconBot from './pages/FalconBot';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -125,11 +126,28 @@ function App() {
               <Route path="/supply-chain" element={<SupplyChainManagement />} />
               <Route path="/life-sciences" element={<LifeSciences />} />
               <Route path="/financial" element={<FinancialAnalytics />} />
+              <Route path="/falconbot" element={<FalconBot />} />
             </Routes>
           </div>
         </main>
+
+        <FloatingBotButton />
       </div>
     </Router>
+  );
+}
+
+function FloatingBotButton() {
+  const navigate = useNavigate();
+
+  return (
+    <button
+      className="floating-bot-button"
+      onClick={() => navigate('/falconbot')}
+      title="Chat with FalconBot"
+    >
+      <img src="/bot.png" alt="FalconBot" />
+    </button>
   );
 }
 
