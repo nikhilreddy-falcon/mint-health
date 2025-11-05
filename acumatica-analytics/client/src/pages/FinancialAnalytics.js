@@ -24,8 +24,8 @@ const FinancialAnalytics = () => {
   const fetchData = async () => {
     try {
       const [financialRes, arAgingRes] = await Promise.all([
-        axios.get('http://localhost:3002/api/analytics/financial'),
-        axios.get('http://localhost:3002/api/analytics/ar-aging')
+        axios.get('http://localhost:7006/api/analytics/financial'),
+        axios.get('http://localhost:7006/api/analytics/ar-aging')
       ]);
       setFinancial(financialRes.data);
       setArAging(arAgingRes.data);
@@ -38,7 +38,7 @@ const FinancialAnalytics = () => {
 
   const fetchCashFlowData = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/api/analytics/cashflow-forecast?days=${days}`);
+      const res = await axios.get(`http://localhost:7006/api/analytics/cashflow-forecast?days=${days}`);
       setForecast(res.data);
     } catch (err) {
       console.error(err);

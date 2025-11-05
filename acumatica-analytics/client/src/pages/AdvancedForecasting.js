@@ -29,7 +29,7 @@ const AdvancedForecasting = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:3002/api/analytics/advanced-forecasting?businessUnit=${businessUnit}&topN=20`);
+      const response = await axios.get(`http://localhost:7006/api/analytics/advanced-forecasting?businessUnit=${businessUnit}&topN=20`);
       setData(response.data);
       setLoading(false);
     } catch (err) {

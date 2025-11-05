@@ -13,7 +13,7 @@ const ExpiryManagement = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3002/api/analytics/expiry-alerts?daysThreshold=${selectedThreshold}`);
+      const response = await axios.get(`http://localhost:7006/api/analytics/expiry-alerts?daysThreshold=${selectedThreshold}`);
       setData(response.data);
       setLoading(false);
     } catch (error) {

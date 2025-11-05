@@ -15,8 +15,8 @@ const ForecastingDashboard = () => {
   const fetchData = async () => {
     try {
       const [forecastRes, tenderRes] = await Promise.all([
-        axios.get(`http://localhost:3002/api/analytics/forecasting?businessUnit=${businessUnit}`),
-        axios.get('http://localhost:3002/api/analytics/tenders')
+        axios.get(`http://localhost:7006/api/analytics/forecasting?businessUnit=${businessUnit}`),
+        axios.get('http://localhost:7006/api/analytics/tenders')
       ]);
       setForecasts(forecastRes.data);
       setTenders(tenderRes.data);

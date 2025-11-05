@@ -18,7 +18,7 @@ const SupplyChainManagement = () => {
   const fetchData = async () => {
     try {
       const [supplierRes] = await Promise.all([
-        axios.get('http://localhost:3002/api/analytics/supplier-scorecards')
+        axios.get('http://localhost:7006/api/analytics/supplier-scorecards')
       ]);
       setSupplierData(supplierRes.data);
 

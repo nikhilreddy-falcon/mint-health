@@ -14,7 +14,7 @@ const CashFlowForecast = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`http://localhost:3002/api/analytics/cashflow-forecast?days=${days}`);
+      const res = await axios.get(`http://localhost:7006/api/analytics/cashflow-forecast?days=${days}`);
       setForecast(res.data);
       setLoading(false);
     } catch (err) {

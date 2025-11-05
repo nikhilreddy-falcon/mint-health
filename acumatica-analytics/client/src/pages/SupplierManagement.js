@@ -13,7 +13,7 @@ const SupplierManagement = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3002/api/analytics/supplier-scorecards');
+      const response = await axios.get('http://localhost:7006/api/analytics/supplier-scorecards');
       setData(response.data);
       setLoading(false);
     } catch (err) {

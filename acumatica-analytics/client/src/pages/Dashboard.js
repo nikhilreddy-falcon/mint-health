@@ -21,10 +21,10 @@ const Dashboard = () => {
     try {
       setLoading(true);
       const [kpisRes, salesRes, pipelineRes, customersRes] = await Promise.all([
-        axios.get('http://localhost:3002/api/analytics/kpis'),
-        axios.get('http://localhost:3002/api/analytics/sales?period=monthly'),
-        axios.get('http://localhost:3002/api/analytics/sales-pipeline'),
-        axios.get('http://localhost:3002/api/analytics/top-customers?limit=5')
+        axios.get('http://localhost:7006/api/analytics/kpis'),
+        axios.get('http://localhost:7006/api/analytics/sales?period=monthly'),
+        axios.get('http://localhost:7006/api/analytics/sales-pipeline'),
+        axios.get('http://localhost:7006/api/analytics/top-customers?limit=5')
       ]);
 
       setKpis(kpisRes.data);

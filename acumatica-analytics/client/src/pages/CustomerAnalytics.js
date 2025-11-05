@@ -15,9 +15,9 @@ const CustomerAnalytics = () => {
   const fetchData = async () => {
     try {
       const [customersRes, segmentationRes, topCustomersRes] = await Promise.all([
-        axios.get('http://localhost:3002/api/analytics/customers'),
-        axios.get('http://localhost:3002/api/analytics/customer-segmentation'),
-        axios.get('http://localhost:3002/api/analytics/top-customers?limit=15')
+        axios.get('http://localhost:7006/api/analytics/customers'),
+        axios.get('http://localhost:7006/api/analytics/customer-segmentation'),
+        axios.get('http://localhost:7006/api/analytics/top-customers?limit=15')
       ]);
       setCustomers(customersRes.data);
       setSegmentation(segmentationRes.data);
