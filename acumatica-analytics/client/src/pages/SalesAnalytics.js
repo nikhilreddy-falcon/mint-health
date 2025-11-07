@@ -40,7 +40,7 @@ const SalesAnalytics = () => {
   };
 
   const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(value);
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 }).format(value);
   };
 
   if (loading) return <div className="loading"><div className="spinner"></div></div>;

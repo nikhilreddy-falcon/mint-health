@@ -137,19 +137,19 @@ function generateVendors(count) {
 
 function generateStockItems(count) {
   const items = [];
-  const itemClasses = ['ELECTRONICS', 'FURNITURE', 'SUPPLIES', 'EQUIPMENT', 'SOFTWARE'];
+  const itemClasses = ['CARDIOVASCULAR', 'DIABETES', 'ANTIBIOTICS', 'RESPIRATORY', 'ANALGESICS', 'VITAMINS', 'MEDICAL_DEVICES'];
   const statuses = ['Active', 'Active', 'Active', 'Inactive', 'NoSales'];
-  const warehouses = ['MAIN', 'WEST', 'EAST', 'SOUTH'];
+  const warehouses = ['MINT-WH', 'PHARMA-NORTH', 'PHARMA-SOUTH', 'CENTRAL'];
 
   const categories = [
-    { prefix: 'LAP', name: 'Laptop' },
-    { prefix: 'MON', name: 'Monitor' },
-    { prefix: 'DSK', name: 'Desk' },
-    { prefix: 'CHR', name: 'Chair' },
-    { prefix: 'PRN', name: 'Printer' },
-    { prefix: 'SRV', name: 'Server' },
-    { prefix: 'NET', name: 'Network Equipment' },
-    { prefix: 'ACC', name: 'Accessories' }
+    { prefix: 'CARDIO', name: 'Cardiovascular Medication' },
+    { prefix: 'DIAB', name: 'Diabetes Treatment' },
+    { prefix: 'ANTI', name: 'Antibiotic' },
+    { prefix: 'RESP', name: 'Respiratory Medicine' },
+    { prefix: 'PAIN', name: 'Pain Relief' },
+    { prefix: 'VIT', name: 'Vitamin Supplement' },
+    { prefix: 'DIAG', name: 'Diagnostic Device' },
+    { prefix: 'MED', name: 'Medical Supply' }
   ];
 
   for (let i = 1; i <= count; i++) {
@@ -457,7 +457,7 @@ function generateJournalTransactions(count) {
       PostPeriod: `${transDate.getFullYear()}${String(transDate.getMonth() + 1).padStart(2, '0')}`,
       Status: randomChoice(statuses),
       Description: faker.lorem.sentence(),
-      CurrencyID: 'USD',
+      CurrencyID: 'EUR',
       ControlTotal: amount,
       DebitTotal: amount,
       CreditTotal: amount,

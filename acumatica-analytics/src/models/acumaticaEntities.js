@@ -186,7 +186,7 @@ class JournalTransaction {
     this.PostPeriod = data.PostPeriod || null;
     this.Status = data.Status || 'Balanced'; // Hold, Balanced, Posted, Released
     this.Description = data.Description || null;
-    this.CurrencyID = data.CurrencyID || 'USD';
+    this.CurrencyID = data.CurrencyID || 'EUR';
     this.ControlTotal = data.ControlTotal || 0;
     this.DebitTotal = data.DebitTotal || 0;
     this.CreditTotal = data.CreditTotal || 0;

@@ -106,10 +106,10 @@ const PHARMA_PRODUCTS = [
   { category: 'MENTAL_HEALTH', name: 'Melatonin 3mg (60s)', type: 'OTC', price: 12.80, supplier: 'Natrol' },
   { category: 'MENTAL_HEALTH', name: 'Magnesium Sleep Complex', type: 'OTC', price: 16.50, supplier: 'Natural Vitality' },
 
-  // Sports Nutrition
-  { category: 'SPORTS', name: 'Protein Powder 1kg', type: 'OTC', price: 35.00, supplier: 'Optimum Nutrition' },
-  { category: 'SPORTS', name: 'BCAA Amino Acids (120s)', type: 'OTC', price: 28.50, supplier: 'Scivation' },
-  { category: 'SPORTS', name: 'Creatine Monohydrate 300g', type: 'OTC', price: 18.90, supplier: 'Optimum Nutrition' }
+  // Medical Devices & Supplies
+  { category: 'MEDICAL_DEVICES', name: 'Blood Glucose Monitor Kit', type: 'OTC', price: 35.00, supplier: 'Abbott' },
+  { category: 'MEDICAL_DEVICES', name: 'Digital Thermometer', type: 'OTC', price: 12.50, supplier: 'Braun' },
+  { category: 'MEDICAL_DEVICES', name: 'Blood Pressure Monitor', type: 'OTC', price: 45.90, supplier: 'Omron' }
 ];
 
 // Pharmaceutical suppliers/vendors

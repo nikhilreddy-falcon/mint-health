@@ -65,7 +65,7 @@ function generateDemandForecast(stockItems, salesOrders, businessUnit) {
     if (businessUnit === 'PHARMA') {
       return ['CARDIOVASCULAR', 'DIABETES', 'ANTIBIOTICS', 'RESPIRATORY', 'ANALGESICS'].includes(item.ItemClass);
     } else if (businessUnit === 'WELLNESS') {
-      return ['VITAMINS', 'DIGESTIVE', 'SPORTS', 'SUPPLEMENTS'].includes(item.ItemClass);
+      return ['VITAMINS', 'DIGESTIVE', 'MEDICAL_DEVICES', 'SUPPLEMENTS'].includes(item.ItemClass);
     } else if (businessUnit === 'PHARMACY') {
       return ['ALLERGY', 'SKINCARE', 'BABY', 'WOMENS_HEALTH', 'MENTAL_HEALTH'].includes(item.ItemClass);
     }
